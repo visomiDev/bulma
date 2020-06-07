@@ -1,6 +1,6 @@
-@function mergeColorMaps($bulma-colors, $custom-colors)
-  // we return at least bulma hardcoded colors
-  $merged-colors: $bulma-colors
+@function mergeColorMaps($vaka-colors, $custom-colors)
+  // we return at least vaka hardcoded colors
+  $merged-colors: $vaka-colors
 
   // we want a map as input
   @if type-of($custom-colors) == 'map'
@@ -27,7 +27,7 @@
           @if type-of($color-invert) != 'color'
             $color-invert: findColorInvert($color-base)
 
-          // we merge this colors elements as map with bulma colors (we can override them this way, no multiple definition for the same name)
+          // we merge this colors elements as map with vaka colors (we can override them this way, no multiple definition for the same name)
           $merged-colors: map_merge($merged-colors, ($name: ($color-base, $color-invert)))
 
   @return $merged-colors
