@@ -8,7 +8,7 @@ $dimensions: 16 24 32 48 64 96 128 !default
     height: auto
     width: 100%
     &.is-rounded
-      border-radius: $radius-rounded
+      border-radius: var(--radius-rounded, $radius-rounded)
   // Ratio
   &.is-square,
   &.is-1by1,
@@ -61,6 +61,7 @@ $dimensions: 16 24 32 48 64 96 128 !default
     padding-top: 200%
   &.is-1by3
     padding-top: 300%
+
   // Sizes
   @each $dimension in $dimensions
     &.is-#{$dimension}x#{$dimension}

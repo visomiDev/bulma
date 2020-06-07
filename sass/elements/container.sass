@@ -2,24 +2,24 @@
   margin: 0 auto
   position: relative
   +desktop
-    max-width: $desktop - (2 * $gap)
-    width: $desktop - (2 * $gap)
+    max-width: calc(var(--desktop, #{$desktop}) - (2 * var(--gap, #{$gap})))
+    width: calc(var(--desktop, #{$desktop}) - (2 * var(--gap, #{$gap})))
     &.is-fluid
-      margin-left: $gap
-      margin-right: $gap
+      margin-left: var(--gap, $gap)
+      margin-right: var(--gap, $gap)
       max-width: none
       width: auto
   +until-widescreen
     &.is-widescreen
-      max-width: $widescreen - (2 * $gap)
+      max-width: calc(var(--widescreen, #{$widescreen}) - (2 * var(--gap, #{$gap})))
       width: auto
   +until-fullhd
     &.is-fullhd
-      max-width: $fullhd - (2 * $gap)
+      max-width: calc(var(--fullhd, #{$fullhd}) - (2 * var(--gap, #{$gap})))
       width: auto
   +widescreen
-    max-width: $widescreen - (2 * $gap)
-    width: $widescreen - (2 * $gap)
+    max-width: calc(var(--widescreen, #{$widescreen}) - (2 * var(--gap, #{$gap})))
+    width: calc(var(--widescreen, #{$widescreen}) - (2 * var(--gap, #{$gap})))
   +fullhd
-    max-width: $fullhd - (2 * $gap)
-    width: $fullhd - (2 * $gap)
+    max-width: calc(var(--fullhd, #{$fullhd}) - (2 * var(--gap, #{$gap})))
+    width: calc(var(--fullhd, #{$fullhd}) - (2 * var(--gap, #{$gap})))

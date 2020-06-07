@@ -40,11 +40,11 @@ $tag-delete-margin: 1px !default
 
 .tag:not(body)
   align-items: center
-  background-color: $tag-background-color
-  border-radius: $tag-radius
-  color: $tag-color
+  background-color: var(--tag-background-color, $tag-background-color)
+  border-radius: var(--tag-radius, $tag-radius)
+  color: var(--tag-color, $tag-color)
   display: inline-flex
-  font-size: $size-small
+  font-size: var(--size-small, $size-small)
   height: 2em
   justify-content: center
   line-height: 1.5
@@ -59,13 +59,13 @@ $tag-delete-margin: 1px !default
     $color: nth($pair, 1)
     $color-invert: nth($pair, 2)
     &.is-#{$name}
-      background-color: $color
-      color: $color-invert
+      background-color: var(--color-#{$name}, $color)
+      color: var(--color-#{$name}-inverted, $color-invert)
   // Sizes
   &.is-medium
-    font-size: $size-normal
+    font-size: var(--size-normal, $size-normal)
   &.is-large
-    font-size: $size-medium
+    font-size: var(--size-medium, $size-medium)
   .icon
     &:first-child:not(:last-child)
       margin-left: -0.375em
@@ -78,7 +78,7 @@ $tag-delete-margin: 1px !default
       margin-right: -0.375em
   // Modifiers
   &.is-delete
-    margin-left: $tag-delete-margin
+    margin-left: var(--tag-delete-margin, $tag-delete-margin)
     padding: 0
     position: relative
     width: 2em
@@ -100,11 +100,11 @@ $tag-delete-margin: 1px !default
       width: 1px
     &:hover,
     &:focus
-      background-color: darken($tag-background-color, 5%)
+      background-color: var(--tag-background-color-darked, darken($tag-background-color, 5%))
     &:active
-      background-color: darken($tag-background-color, 10%)
+      background-color: var(--tag-background-color-darked-10, darken($tag-background-color, 10%))
   &.is-rounded
-    border-radius: $radius-rounded
+    border-radius: var(--radius-rounded, $radius-rounded)
 
 a.tag
   &:hover

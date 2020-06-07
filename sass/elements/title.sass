@@ -23,24 +23,24 @@ $subtitle-negative-margin: -1.25rem !default
   span
     font-weight: inherit
   sub
-    font-size: $title-sub-size
+    font-size: var(--title-sub-size, $title-sub-size)
   sup
-    font-size: $title-sup-size
+    font-size: var(--title-sup-size, $title-sup-size)
   .tag
     vertical-align: middle
 
 .title
-  color: $title-color
-  font-size: $title-size
-  font-weight: $title-weight
-  line-height: $title-line-height
+  color: var(--title-color, $title-color)
+  font-size: var(--title-size, $title-size)
+  font-weight: var(--title-weight, $title-weight)
+  line-height: var(--title-line-height, $title-line-height)
   strong
-    color: $title-strong-color
-    font-weight: $title-strong-weight
+    color: var(--title-strong-color, $title-strong-color)
+    font-weight: var(--title-strong-weight, $title-strong-weight)
   & + .highlight
     margin-top: -0.75rem
   &:not(.is-spaced) + .subtitle
-    margin-top: $subtitle-negative-margin
+    margin-top: var(--subtitle-negative-margin, $subtitle-negative-margin)
   // Sizes
   @each $size in $sizes
     $i: index($sizes, $size)
@@ -48,15 +48,15 @@ $subtitle-negative-margin: -1.25rem !default
       font-size: $size
 
 .subtitle
-  color: $subtitle-color
-  font-size: $subtitle-size
-  font-weight: $subtitle-weight
-  line-height: $subtitle-line-height
+  color: var(--subtitle-color, $subtitle-color)
+  font-size: var(--subtitle-size, $subtitle-size)
+  font-weight: var(--subtitle-weight, $subtitle-weight)
+  line-height: var(--subtitle-line-height, $subtitle-line-height)
   strong
-    color: $subtitle-strong-color
-    font-weight: $subtitle-strong-weight
+    color: var(--subtitle-strong-color, $subtitle-strong-color)
+    font-weight: var(--subtitle-strong-weight, $subtitle-strong-weight)
   &:not(.is-spaced) + .title
-    margin-top: $subtitle-negative-margin
+    margin-top: var(--subtitle-negative-margin, $subtitle-negative-margin)
   // Sizes
   @each $size in $sizes
     $i: index($sizes, $size)

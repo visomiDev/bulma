@@ -22,10 +22,13 @@
     "url": "https://gitlab.com/visomi.dev/vaka/issues"
   },
   "devDependencies": {
-    "dart-sass": "^1.25.0"
+    "dart-sass": "^1.25.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.8"
   },
   "scripts": {
-    "dart-sass": "dart-sass"
+    "dart-sass": "dart-sass",
+    "dev": "parcel public/index.html"
   },
   "files": [
     "css",

@@ -13,7 +13,7 @@
 
 .highlight
   +block
-  font-weight: $weight-normal
+  font-weight: var(--weight-normal, $weight-normal)
   max-width: 100%
   overflow: hidden
   padding: 0
@@ -26,10 +26,10 @@
 
 .number
   align-items: center
-  background-color: $background
-  border-radius: $radius-rounded
+  background-color: var(--background, $background)
+  border-radius: var(--radius-rounded, $radius-rounded)
   display: inline-flex
-  font-size: $size-medium
+  font-size: var(--size-medium, $size-medium)
   height: 2em
   justify-content: center
   margin-right: 1.5rem

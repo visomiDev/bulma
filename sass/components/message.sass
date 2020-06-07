@@ -20,9 +20,9 @@ $message-header-body-border-width: 0 !default
 
 .message
   +block
-  background-color: $message-background-color
-  border-radius: $message-radius
-  font-size: $size-normal
+  background-color: var(--message-background-color, $message-background-color)
+  border-radius: var(--message-radius, $message-radius)
+  font-size: var(--size-normal, $size-normal)
   strong
     color: currentColor
   a:not(.button):not(.tag)
@@ -30,11 +30,12 @@ $message-header-body-border-width: 0 !default
     text-decoration: underline
   // Sizes
   &.is-small
-    font-size: $size-small
+    font-size: var(--size-small, $size-small)
   &.is-medium
-    font-size: $size-medium
+    font-size: var(--size-medium, $size-medium)
   &.is-large
-    font-size: $size-large
+    font-size: var(--size-large, $size-large)
+
   // Colors
   @each $name, $pair in $colors
     $color: nth($pair, 1)
@@ -44,43 +45,43 @@ $message-header-body-border-width: 0 !default
     $darken-percentage: $color-luminance * 70%
     $desaturate-percentage: $color-luminance * 30%
     &.is-#{$name}
-      background-color: lighten($color, $color-lightning)
+      background-color: var(--color-#{$name}-lighted, lighten($color, $color-lightning))
       .message-header
-        background-color: $color
-        color: $color-invert
+        background-color: var(--color-#{$name}, $color)
+        color: var(--color-#{$name}-inverted, $color-invert)
       .message-body
-        border-color: $color
-        color: desaturate(darken($color, $darken-percentage), $desaturate-percentage)
+        border-color: var(--color-#{$name}, $color)
+        color: var(--color-#{$name}-darked-desaturated, desaturate(darken($color, $darken-percentage), $desaturate-percentage))
 
 .message-header
   align-items: center
-  background-color: $message-header-background-color
-  border-radius: $message-header-radius $message-header-radius 0 0
-  color: $message-header-color
+  background-color: var(--message-header-background-color, $message-header-background-color)
+  border-radius: var(--message-header-radius, $message-header-radius) var(--message-header-radius, $message-header-radius) 0 0
+  color: var(--message-header-color, $message-header-color)
   display: flex
-  font-weight: $message-header-weight
+  font-weight: var(--message-header-weight, $message-header-weight)
   justify-content: space-between
   line-height: 1.25
-  padding: $message-header-padding
+  padding: var(--message-header-padding, $message-header-padding)
   position: relative
   .delete
     flex-grow: 0
     flex-shrink: 0
     margin-left: 0.75em
   & + .message-body
-    border-width: $message-header-body-border-width
+    border-width: var(--message-header-body-border-width, $message-header-body-border-width)
     border-top-left-radius: 0
     border-top-right-radius: 0
 
 .message-body
-  border-color: $message-body-border-color
-  border-radius: $message-body-radius
+  border-color: var(--message-body-border-color, $message-body-border-color)
+  border-radius: var(--message-body-radius, $message-body-radius)
   border-style: solid
-  border-width: $message-body-border-width
-  color: $message-body-color
-  padding: $message-body-padding
+  border-width: var(--message-body-border-width, $message-body-border-width)
+  color: var(--message-body-color, $message-body-color)
+  padding: var(--message-body-padding, $message-body-padding)
   code,
   pre
-    background-color: $message-body-pre-background-color
+    background-color: var(--message-body-pre-background-color, $message-body-pre-background-color)
   pre code
-    background-color: $message-body-pre-code-background-color
+    background-color: var(--message-body-pre-code-background-color, $message-body-pre-code-background-color)

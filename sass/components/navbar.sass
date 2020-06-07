@@ -48,86 +48,86 @@ $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default
   left: 0
   position: fixed
   right: 0
-  z-index: $navbar-fixed-z
+  z-index: var(--navbar-fixed-z, $navbar-fixed-z)
 
 .navbar
-  background-color: $navbar-background-color
-  min-height: $navbar-height
+  background-color: var(--navbar-background-color, $navbar-background-color)
+  min-height: var(--navbar-height, $navbar-height)
   position: relative
-  z-index: $navbar-z
+  z-index: var(--navbar-z, $navbar-z)
   @each $name, $pair in $colors
     $color: nth($pair, 1)
     $color-invert: nth($pair, 2)
     &.is-#{$name}
-      background-color: $color
-      color: $color-invert
+      background-color: var(--color-#{$name}, $color)
+      color: var(--color-#{$name}-inverted, $color-invert)
       .navbar-brand
         & > .navbar-item,
         .navbar-link
-          color: $color-invert
+          color: var(--color-#{$name}-inverted, $color-invert)
         & > a.navbar-item,
         .navbar-link
           &:hover,
           &.is-active
-            background-color: darken($color, 5%)
-            color: $color-invert
+            background-color: var(--color-#{$name}-darked, darken($color, 5%))
+            color: var(--color-#{$name}-inverted, $color-invert)
         .navbar-link
           &::after
-            border-color: $color-invert
+            border-color: var(--color-#{$name}-inverted, $color-invert)
       +desktop
         .navbar-start,
         .navbar-end
           & > .navbar-item,
           .navbar-link
-            color: $color-invert
+            color: var(--color-#{$name}-inverted, $color-invert)
           & > a.navbar-item,
           .navbar-link
             &:hover,
             &.is-active
-              background-color: darken($color, 5%)
-              color: $color-invert
+              background-color: var(--color-#{$name}-darked, darken($color, 5%))
+              color: var(--color-#{$name}-inverted, $color-invert)
           .navbar-link
             &::after
-              border-color: $color-invert
+              border-color: var(--color-#{$name}-inverted, $color-invert)
         .navbar-item.has-dropdown:hover .navbar-link,
         .navbar-item.has-dropdown.is-active .navbar-link
-          background-color: darken($color, 5%)
-          color: $color-invert
+          background-color: var(--color-#{$name}-darked, darken($color, 5%))
+          color: var(--color-#{$name}-inverted, $color-invert)
         .navbar-dropdown
           a.navbar-item
             &.is-active
-              background-color: $color
-              color: $color-invert
+              background-color: var(--color-#{$name}, $color)
+              color: var(--color-#{$name}-inverted, $color-invert)
   & > .container
     align-items: stretch
     display: flex
-    min-height: $navbar-height
+    min-height: var(--navbar-height, $navbar-height)
     width: 100%
   &.has-shadow
-    box-shadow: $navbar-box-shadow-size $navbar-box-shadow-color
+    box-shadow: var(--navbar-box-shadow-size, $navbar-box-shadow-size) var(--navbar-box-shadow-color, $navbar-box-shadow-color)
   &.is-fixed-bottom,
   &.is-fixed-top
     +navbar-fixed
   &.is-fixed-bottom
     bottom: 0
     &.has-shadow
-      box-shadow: $navbar-bottom-box-shadow-size $navbar-box-shadow-color
+      box-shadow: var(--navbar-bottom-box-shadow-size, $navbar-bottom-box-shadow-size) var(--navbar-box-shadow-color, $navbar-box-shadow-color)
   &.is-fixed-top
     top: 0
 
 html,
 body
   &.has-navbar-fixed-top
-    padding-top: $navbar-height
+    padding-top: var(--navbar-height, $navbar-height)
   &.has-navbar-fixed-bottom
-    padding-bottom: $navbar-height
+    padding-bottom: var(--navbar-height, $navbar-height)
 
 .navbar-brand,
 .navbar-tabs
   align-items: stretch
   display: flex
   flex-shrink: 0
-  min-height: $navbar-height
+  min-height: var(--navbar-height, $navbar-height)
 
 .navbar-brand
   a.navbar-item
@@ -141,8 +141,8 @@ body
   overflow-y: hidden
 
 .navbar-burger
-  color: $navbar-burger-color
-  +hamburger($navbar-height)
+  color: var(--navbar-burger-color, $navbar-burger-color)
+  +hamburger(var(--navbar-height, $navbar-height))
   margin-left: auto
 
 .navbar-menu
@@ -150,7 +150,7 @@ body
 
 .navbar-item,
 .navbar-link
-  color: $navbar-item-color
+  color: var(--navbar-item-color, $navbar-item-color)
   display: block
   line-height: 1.5
   padding: 0.5rem 0.75rem
@@ -165,15 +165,15 @@ a.navbar-item,
   cursor: pointer
   &:hover,
   &.is-active
-    background-color: $navbar-item-hover-background-color
-    color: $navbar-item-hover-color
+    background-color: var(--navbar-item-hover-background-color, $navbar-item-hover-background-color)
+    color: var(--navbar-item-hover-color, $navbar-item-hover-color)
 
 .navbar-item
   display: block
   flex-grow: 0
   flex-shrink: 0
   img
-    max-height: $navbar-item-img-max-height
+    max-height: var(--navbar-item-img-max-height, $navbar-item-img-max-height)
   &.has-dropdown
     padding: 0
   &.is-expanded
@@ -181,18 +181,18 @@ a.navbar-item,
     flex-shrink: 1
   &.is-tab
     border-bottom: 1px solid transparent
-    min-height: $navbar-height
+    min-height: var(--navbar-height, $navbar-height)
     padding-bottom: calc(0.5rem - 1px)
     &:hover
-      background-color: $navbar-tab-hover-background-color
-      border-bottom-color: $navbar-tab-hover-border-bottom-color
+      background-color: var(--navbar-tab-hover-background-color, $navbar-tab-hover-background-color)
+      border-bottom-color: var(--navbar-tab-hover-border-bottom-color, $navbar-tab-hover-border-bottom-color)
     &.is-active
-      background-color: $navbar-tab-active-background-color
-      border-bottom-color: $navbar-tab-active-border-bottom-color
-      border-bottom-style: $navbar-tab-active-border-bottom-style
-      border-bottom-width: $navbar-tab-active-border-bottom-width
-      color: $navbar-tab-active-color
-      padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width})
+      background-color: var(--navbar-tab-active-background-color, $navbar-tab-active-background-color)
+      border-bottom-color: var(--navbar-tab-active-border-bottom-color, $navbar-tab-active-border-bottom-color)
+      border-bottom-style: var(--navbar-tab-active-border-bottom-style, $navbar-tab-active-border-bottom-style)
+      border-bottom-width: var(--navbar-tab-active-border-bottom-width, $navbar-tab-active-border-bottom-width)
+      color: var(--navbar-tab-active-color, $navbar-tab-active-color)
+      padding-bottom: calc(0.5rem - var(--navbar-tab-active-border-bottom-width, #{$navbar-tab-active-border-bottom-width}))
 
 .navbar-content
   flex-grow: 1
@@ -201,7 +201,7 @@ a.navbar-item,
 .navbar-link:not(.is-arrowless)
   padding-right: 2.5em
   &::after
-    +arrow($navbar-dropdown-arrow)
+    +arrow(var(--navbar-dropdown-arrow, $navbar-dropdown-arrow))
     margin-top: -0.375em
     right: 1.125em
 
@@ -214,10 +214,10 @@ a.navbar-item,
     padding-right: 1.5rem
 
 .navbar-divider
-  background-color: $navbar-divider-background-color
+  background-color: var(--navbar-divider-background-color, $navbar-divider-background-color)
   border: none
   display: none
-  height: $navbar-divider-height
+  height: var(--navbar-divider-height, $navbar-divider-height)
   margin: 0.5rem 0
 
 +touch
@@ -232,8 +232,8 @@ a.navbar-item,
     &::after
       display: none
   .navbar-menu
-    background-color: $navbar-background-color
-    box-shadow: 0 8px 16px rgba($black, 0.1)
+    background-color: var(--navbar-background-color, $navbar-background-color)
+    box-shadow: 0 8px 16px rgba(var(--color-black, $black), 0.1)
     padding: 0.5rem 0
     &.is-active
       display: block
@@ -245,21 +245,21 @@ a.navbar-item,
     &.is-fixed-bottom-touch
       bottom: 0
       &.has-shadow
-        box-shadow: 0 -2px 3px rgba($black, 0.1)
+        box-shadow: 0 -2px 3px rgba(var(--color-black, $black), 0.1)
     &.is-fixed-top-touch
       top: 0
     &.is-fixed-top,
     &.is-fixed-top-touch
       .navbar-menu
         +overflow-touch
-        max-height: calc(100vh - #{$navbar-height})
+        max-height: calc(100vh - var(--navbar-height, #{$navbar-height}))
         overflow: auto
   html,
   body
     &.has-navbar-fixed-top-touch
-      padding-top: $navbar-height
+      padding-top: var(--navbar-height, $navbar-height)
     &.has-navbar-fixed-bottom-touch
-      padding-bottom: $navbar-height
+      padding-bottom: var(--navbar-height, $navbar-height)
 
 +desktop
   .navbar,
@@ -269,15 +269,15 @@ a.navbar-item,
     align-items: stretch
     display: flex
   .navbar
-    min-height: $navbar-height
+    min-height: var(--navbar-height, $navbar-height)
     &.is-spaced
-      padding: $navbar-padding-vertical $navbar-padding-horizontal
+      padding: var(--navbar-padding-vertical, $navbar-padding-vertical) var(--navbar-padding-horizontal, $navbar-padding-horizontal)
       .navbar-start,
       .navbar-end
         align-items: center
       a.navbar-item,
       .navbar-link
-        border-radius: $radius
+        border-radius: var(--radius, $radius)
     &.is-transparent
       a.navbar-item,
       .navbar-link
@@ -292,11 +292,11 @@ a.navbar-item,
       .navbar-dropdown
         a.navbar-item
           &:hover
-            background-color: $navbar-dropdown-item-hover-background-color
-            color: $navbar-dropdown-item-hover-color
+            background-color: var(--navbar-dropdown-item-hover-background-color, $navbar-dropdown-item-hover-background-color)
+            color: var(--navbar-dropdown-item-hover-color, $navbar-dropdown-item-hover-color)
           &.is-active
-            background-color: $navbar-dropdown-item-active-background-color
-            color: $navbar-dropdown-item-active-color
+            background-color: var(--navbar-dropdown-item-active-background-color, $navbar-dropdown-item-active-background-color)
+            color: var(--navbar-dropdown-item-active-color, $navbar-dropdown-item-active-color)
   .navbar-burger
     display: none
   .navbar-item,
@@ -311,11 +311,11 @@ a.navbar-item,
       .navbar-link::after
         transform: rotate(135deg) translate(0.25em, -0.25em)
       .navbar-dropdown
-        border-bottom: $navbar-dropdown-border-top
-        border-radius: $navbar-dropdown-radius $navbar-dropdown-radius 0 0
+        border-bottom: var(--navbar-dropdown-border-top, $navbar-dropdown-border-top)
+        border-radius: var(--navbar-dropdown-radius, $navbar-dropdown-radius) var(--navbar-dropdown-radius, $navbar-dropdown-radius) 0 0
         border-top: none
         bottom: 100%
-        box-shadow: 0 -8px 8px rgba($black, 0.1)
+        box-shadow: 0 -8px 8px rgba(var(--color-black, $black), 0.1)
         top: auto
     &.is-active,
     &.is-hoverable:hover
@@ -336,40 +336,40 @@ a.navbar-item,
     justify-content: flex-end
     margin-left: auto
   .navbar-dropdown
-    background-color: $navbar-dropdown-background-color
-    border-bottom-left-radius: $navbar-dropdown-radius
-    border-bottom-right-radius: $navbar-dropdown-radius
-    border-top: $navbar-dropdown-border-top
-    box-shadow: 0 8px 8px rgba($black, 0.1)
+    background-color: var(--navbar-dropdown-background-color, $navbar-dropdown-background-color)
+    border-bottom-left-radius: var(--navbar-dropdown-radius, $navbar-dropdown-radius)
+    border-bottom-right-radius: var(--navbar-dropdown-radius, $navbar-dropdown-radius)
+    border-top: var(--navbar-dropdown-border-top, $navbar-dropdown-border-top)
+    box-shadow: 0 8px 8px rgba(var(--color-black, $black), 0.1)
     display: none
     font-size: 0.875rem
     left: 0
     min-width: 100%
     position: absolute
     top: 100%
-    z-index: $navbar-dropdown-z
+    z-index: var(--navbar-dropdown-z, $navbar-dropdown-z)
     .navbar-item
       padding: 0.375rem 1rem
       white-space: nowrap
     a.navbar-item
       padding-right: 3rem
       &:hover
-        background-color: $navbar-dropdown-item-hover-background-color
-        color: $navbar-dropdown-item-hover-color
+        background-color: var(--navbar-dropdown-item-hover-background-color, $navbar-dropdown-item-hover-background-color)
+        color: var(--navbar-dropdown-item-hover-color, $navbar-dropdown-item-hover-color)
       &.is-active
-        background-color: $navbar-dropdown-item-active-background-color
-        color: $navbar-dropdown-item-active-color
+        background-color: var(--navbar-dropdown-item-active-background-color, $navbar-dropdown-item-active-background-color)
+        color: var(--navbar-dropdown-item-active-color, $navbar-dropdown-item-active-color)
     .navbar.is-spaced &,
     &.is-boxed
-      border-radius: $navbar-dropdown-boxed-radius
+      border-radius: var(--navbar-dropdown-boxed-radius, $navbar-dropdown-boxed-radius)
       border-top: none
-      box-shadow: $navbar-dropdown-boxed-shadow
+      box-shadow: var(--navbar-dropdown-boxed-shadow, $navbar-dropdown-boxed-shadow)
       display: block
       opacity: 0
       pointer-events: none
-      top: calc(100% + (#{$navbar-dropdown-offset}))
+      top: calc(100% + (var(--navbar-dropdown-offset, #{$navbar-dropdown-offset})))
       transform: translateY(-5px)
-      transition-duration: $speed
+      transition-duration: var(--speed, $speed)
       transition-property: opacity, transform
     &.is-right
       left: auto
@@ -390,28 +390,28 @@ a.navbar-item,
     &.is-fixed-bottom-desktop
       bottom: 0
       &.has-shadow
-        box-shadow: 0 -2px 3px rgba($black, 0.1)
+        box-shadow: 0 -2px 3px rgba(var(--color-black, $black), 0.1)
     &.is-fixed-top-desktop
       top: 0
   html,
   body
     &.has-navbar-fixed-top-desktop
-      padding-top: $navbar-height
+      padding-top: var(--navbar-height, $navbar-height)
     &.has-navbar-fixed-bottom-desktop
-      padding-bottom: $navbar-height
+      padding-bottom: var(--navbar-height, $navbar-height)
     &.has-spaced-navbar-fixed-top
-      padding-top: $navbar-height + ($navbar-padding-vertical * 2)
+      padding-top: calc(var(--navbar-height, #{$navbar-height}) + (var(--navbar-padding-vertical, #{$navbar-padding-vertical}) * 2))
     &.has-spaced-navbar-fixed-bottom
-      padding-bottom: $navbar-height + ($navbar-padding-vertical * 2)
+      padding-bottom: calc(var(--navbar-height, #{$navbar-height}) + (var(--navbar-padding-vertical, #{$navbar-padding-vertical}) * 2))
   // Hover/Active states
   a.navbar-item,
   .navbar-link
     &.is-active
-      color: $navbar-item-active-color
+      color: var(--navbar-item-active-color, $navbar-item-active-color)
     &.is-active:not(:hover)
-      background-color: $navbar-item-active-background-color
+      background-color: var(--navbar-item-active-background-color, $navbar-item-active-background-color)
   .navbar-item.has-dropdown
     &:hover,
     &.is-active
       .navbar-link
-        background-color: $navbar-item-hover-background-color
+        background-color: var(--navbar-item-hover-background-color, $navbar-item-hover-background-color)

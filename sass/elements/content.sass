@@ -38,9 +38,9 @@ $content-table-foot-cell-color: $text-strong !default
   h4,
   h5,
   h6
-    color: $content-heading-color
-    font-weight: $content-heading-weight
-    line-height: $content-heading-line-height
+    color: var(--content-heading-color, $content-heading-color)
+    font-weight: var(--content-heading-weight, $content-heading-weight)
+    line-height: var(--content-heading-line-height, $content-heading-line-height)
   h1
     font-size: 2em
     margin-bottom: 0.5em
@@ -66,9 +66,9 @@ $content-table-foot-cell-color: $text-strong !default
     font-size: 1em
     margin-bottom: 1em
   blockquote
-    background-color: $content-blockquote-background-color
-    border-left: $content-blockquote-border-left
-    padding: $content-blockquote-padding
+    background-color: var(--content-blockquote-background-color, $content-blockquote-background-color)
+    border-left: var(--content-blockquote-border-left, $content-blockquote-border-left)
+    padding: var(--content-blockquote-padding, $content-blockquote-padding)
   ol
     list-style: decimal outside
     margin-left: 2em
@@ -99,7 +99,7 @@ $content-table-foot-cell-color: $text-strong !default
   pre
     +overflow-touch
     overflow-x: auto
-    padding: $content-pre-padding
+    padding: var(--content-pre-padding, $content-pre-padding)
     white-space: pre
     word-wrap: normal
   sup,
@@ -109,23 +109,23 @@ $content-table-foot-cell-color: $text-strong !default
     width: 100%
     td,
     th
-      border: $content-table-cell-border
-      border-width: $content-table-cell-border-width
-      padding: $content-table-cell-padding
+      border: var(--content-table-cell-border, $content-table-cell-border)
+      border-width: var(--content-table-cell-border-width, $content-table-cell-border-width)
+      padding: var(--content-table-cell-padding, $content-table-cell-padding)
       vertical-align: top
     th
-      color: $content-table-cell-heading-color
+      color: var(--content-table-cell-heading-color, $content-table-cell-heading-color)
       text-align: left
     thead
       td,
       th
-        border-width: $content-table-head-cell-border-width
-        color: $content-table-head-cell-color
+        border-width: var(--content-table-head-cell-border-width, $content-table-head-cell-border-width)
+        color: var(--content-table-head-cell-color, $content-table-head-cell-color)
     tfoot
       td,
       th
-        border-width: $content-table-foot-cell-border-width
-        color: $content-table-foot-cell-color
+        border-width: var(--content-table-foot-cell-border-width, $content-table-foot-cell-border-width)
+        color: var(--content-table-foot-cell-color, $content-table-foot-cell-color)
     tbody
       tr
         &:last-child
@@ -134,8 +134,8 @@ $content-table-foot-cell-color: $text-strong !default
             border-bottom-width: 0
   // Sizes
   &.is-small
-    font-size: $size-small
+    font-size: var(--size-small, $size-small)
   &.is-medium
-    font-size: $size-medium
+    font-size: var(--size-medium, $size-medium)
   &.is-large
-    font-size: $size-large
+    font-size: var(--size-large, $size-large)

@@ -97,28 +97,28 @@ $alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'rig
 @each $name, $pair in $colors
   $color: nth($pair, 1)
   .has-text-#{$name}
-    color: $color !important
+    color: var(--color-#{$name}, $color) !important
   a.has-text-#{$name}
     &:hover,
     &:focus
-      color: darken($color, 10%) !important
+      color: var(--color-#{$name}-darked-10, darken($color, 10%)) !important
   .has-background-#{$name}
-    background-color: $color !important
+    background-color: var(--color-#{$name}, $color) !important
 
 @each $name, $shade in $shades
   .has-text-#{$name}
-    color: $shade !important
+    color: var(--color-#{$name}, $shade) !important
   .has-background-#{$name}
-    background-color: $shade !important
+    background-color: var(--color-#{$name}, $shade) !important
 
 .has-text-weight-light
-  font-weight: $weight-light !important
+  font-weight: var(--weight-light, $weight-light) !important
 .has-text-weight-normal
-  font-weight: $weight-normal !important
+  font-weight: var(--weight-normal, $weight-normal) !important
 .has-text-weight-semibold
-  font-weight: $weight-semibold !important
+  font-weight: var(--weight-semibold, $weight-semibold) !important
 .has-text-weight-bold
-  font-weight: $weight-bold !important
+  font-weight: var(--weight-bold, $weight-bold) !important
 
 // Visibility
 

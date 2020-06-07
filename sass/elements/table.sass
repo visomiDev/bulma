@@ -21,56 +21,57 @@ $table-striped-row-even-hover-background-color: $white-ter !default
 
 .table
   +block
-  background-color: $table-background-color
-  color: $table-color
+  background-color: var(--table-background-color, $table-background-color)
+  color: var(--table-color, $table-color)
   td,
   th
-    border: $table-cell-border
-    border-width: $table-cell-border-width
-    padding: $table-cell-padding
+    border: var(--table-cell-border, $table-cell-border)
+    border-width: var(--table-cell-border-width, $table-cell-border-width)
+    padding: var(--table-cell-padding, $table-cell-padding)
     vertical-align: top
     // Colors
     @each $name, $pair in $colors
       $color: nth($pair, 1)
       $color-invert: nth($pair, 2)
       &.is-#{$name}
-        background-color: $color
-        border-color: $color
-        color: $color-invert
+        background-color: var(--color-#{$name}, $color)
+        border-color: var(--color-#{$name}, $color)
+        color: var(--color-#{$name}-inverted, $color-invert)
+
     // Modifiers
     &.is-narrow
       white-space: nowrap
       width: 1%
     &.is-selected
-      background-color: $table-row-active-background-color
-      color: $table-row-active-color
+      background-color: var(--table-row-active-background-color, $table-row-active-background-color)
+      color: var(--table-row-active-color, $table-row-active-color)
       a,
       strong
         color: currentColor
   th
-    color: $table-cell-heading-color
+    color: var(--table-cell-heading-color, $table-cell-heading-color)
     text-align: left
   tr
     &.is-selected
-      background-color: $table-row-active-background-color
-      color: $table-row-active-color
+      background-color: var(--table-row-active-background-color, $table-row-active-background-color)
+      color: var(--table-row-active-color, $table-row-active-color)
       a,
       strong
         color: currentColor
       td,
       th
-        border-color: $table-row-active-color
+        border-color: var(--table-row-active-color, $table-row-active-color)
         color: currentColor
   thead
     td,
     th
-      border-width: $table-head-cell-border-width
-      color: $table-head-cell-color
+      border-width: var(--table-head-cell-border-width, $table-head-cell-border-width)
+      color: var(--table-head-cell-color, $table-head-cell-color)
   tfoot
     td,
     th
-      border-width: $table-foot-cell-border-width
-      color: $table-foot-cell-color
+      border-width: var(--table-foot-cell-border-width, $table-foot-cell-border-width)
+      color: var(--table-foot-cell-color, $table-foot-cell-color)
   tbody
     tr
       &:last-child
@@ -93,12 +94,12 @@ $table-striped-row-even-hover-background-color: $white-ter !default
     tbody
       tr:not(.is-selected)
         &:hover
-          background-color: $table-row-hover-background-color
+          background-color: var(--table-row-hover-background-color, $table-row-hover-background-color)
     &.is-striped
       tbody
         tr:not(.is-selected)
           &:hover
-            background-color: $table-striped-row-even-hover-background-color
+            background-color: var(--table-striped-row-even-hover-background-color, $table-striped-row-even-hover-background-color)
   &.is-narrow
     td,
     th
@@ -107,7 +108,7 @@ $table-striped-row-even-hover-background-color: $white-ter !default
     tbody
       tr:not(.is-selected)
         &:nth-child(even)
-          background-color: $table-striped-row-even-background-color
+          background-color: var(--table-striped-row-even-background-color, $table-striped-row-even-background-color)
 
 .table-container
   +block

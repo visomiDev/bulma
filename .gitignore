@@ -3,6 +3,8 @@
 .ruby-version
 test.sass
 npm-debug.log
+dist
+.cache
 
 # Folders
 .idea/

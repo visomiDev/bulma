@@ -10,16 +10,16 @@ $breadcrumb-item-separator-color: $grey-light !default
 .breadcrumb
   +block
   +unselectable
-  font-size: $size-normal
+  font-size: var(--size-normal, $size-normal)
   white-space: nowrap
   a
     align-items: center
-    color: $breadcrumb-item-color
+    color: var(--breadcrumb-item-color, $breadcrumb-item-color)
     display: flex
     justify-content: center
-    padding: $breadcrumb-item-padding-vertical $breadcrumb-item-padding-horizontal
+    padding: var(--breadcrumb-item-padding-vertical, $breadcrumb-item-padding-vertical) var(--breadcrumb-item-padding-horizontal, $breadcrumb-item-padding-horizontal)
     &:hover
-      color: $breadcrumb-item-hover-color
+      color: var(--breadcrumb-item-hover-color, $breadcrumb-item-hover-color)
   li
     align-items: center
     display: flex
@@ -27,11 +27,11 @@ $breadcrumb-item-separator-color: $grey-light !default
       padding-left: 0
     &.is-active
       a
-        color: $breadcrumb-item-active-color
+        color: var(--breadcrumb-item-active-color, $breadcrumb-item-active-color)
         cursor: default
         pointer-events: none
     & + li::before
-      color: $breadcrumb-item-separator-color
+      color: var(--breadcrumb-item-separator-color, $breadcrumb-item-separator-color)
       content: "\0002f"
   ul,
   ol
@@ -44,6 +44,7 @@ $breadcrumb-item-separator-color: $grey-light !default
       margin-right: 0.5em
     &:last-child
       margin-left: 0.5em
+
   // Alignment
   &.is-centered
     ol,
@@ -53,13 +54,15 @@ $breadcrumb-item-separator-color: $grey-light !default
     ol,
     ul
       justify-content: flex-end
+
   // Sizes
   &.is-small
-    font-size: $size-small
+    font-size: var(--size-small, $size-small)
   &.is-medium
-    font-size: $size-medium
+    font-size: var(--size-medium, $size-medium)
   &.is-large
-    font-size: $size-large
+    font-size: var(--size-large, $size-large)
+
   // Styles
   &.has-arrow-separator
     li + li::before
