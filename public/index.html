@@ -5,34 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaka | A bulma based framework</title>
 
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
   <link rel="stylesheet" href="../sass/vaka.sass">
 
   <style>
     [theme="light"] {
-      --body-background-color: whitesmoke;
-      --card-background-color: red;
+      --color-primary: #58E5D1;
+      --color-primary-darked: #0985BA;
+      --color-primary-darked-25: #208159;
 
+      --color-primary-inverted: #050505;
+    }
+
+    [theme="dark"] {
+      --color-primary: #4e057f;
+      --color-primary-darked: #43037E;
+    }
+
+    html,
+    body {
       overflow-y: auto;
     }
 
-    main.is-flex {
-      justify-content: center;
-      align-items: center;
+    html,
+    body > * {
+      transition: all 0.5s ease-out;
+    }
 
-      min-height: 100vh;
-      width: 100%;
+    [theme="light"] .fa-sun {
+      display: none;
+    }
+
+    [theme="dark"] .fa-moon {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <main class="is-flex">
-    <section class="container">
+  <section class="hero is-primary is-fullheight">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <header class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              Vaka
+            </a>
 
+            <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroC" class="navbar-menu">
+            <div class="navbar-end">
+              <span class="navbar-item">
+                <a
+                  href="https://gitlab.com/visomi.dev/vaka"
+                  class="button is-primary is-inverted is-outlined"
+                  target="__blank"
+                >
+                  <span class="icon">
+                    <i class="fab fa-gitlab"></i>
+                  </span>
+                  <span>Give me the code!</span>
+                </a>
+              </span>
 
+              <span class="navbar-item">
+                <a
+                  id="toogleTheme"
+                  class="button is-primary"
+                >
+                  <span class="icon">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                  </span>
+                  <span>Toggle Theme!</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
 
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          With css vars!
+        </h1>
+        <h2 class="subtitle">
+          Comming soon more examples
+        </h2>
+      </div>
+    </div>
 
+    <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+      <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+          <ul>
+            <li class="is-active"><a>Overview</a></li>
+            <li><a>Modifiers</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
 
-    </section>
-  </main>
+  <script>
+    const themeToggler = document.getElementById('toogleTheme')
+    const root = document.documentElement
+
+    themeToggler.addEventListener('click', () => {
+      const currentMode = root.getAttribute('theme')
+
+      if (currentMode === 'light') {
+        root.setAttribute('theme', 'dark');
+      } else {
+        root.setAttribute('theme', 'light');
+      }
+    })
+  </script>
 </body>
 </html>

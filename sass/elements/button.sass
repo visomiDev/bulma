@@ -33,26 +33,26 @@ $button-static-border-color: $grey-lighter !default
 
 // The button sizes use mixins so they can be used at different breakpoints
 =button-small
-  border-radius: var(--$radius-small, $radius-small)
-  font-size: var(--$size-small, $size-small)
+  border-radius: var(--radius-small, $radius-small)
+  font-size: var(--size-small, $size-small)
 =button-medium
-  font-size: var(--$size-medium, $size-medium)
+  font-size: var(--size-medium, $size-medium)
 =button-large
-  font-size: var(--$size-large, $size-large)
+  font-size: var(--size-large, $size-large)
 
 .button
   +control
   +unselectable
-  background-color: var(--$button-background-color, $button-background-color)
-  border-color: var(--$button-border-color, $button-border-color)
-  border-width: var(--$button-border-width, $button-border-width)
-  color: var(--$button-color, $button-color)
+  background-color: var(--button-background-color, $button-background-color)
+  border-color: var(--button-border-color, $button-border-color)
+  border-width: var(--button-border-width, $button-border-width)
+  color: var(--button-color, $button-color)
   cursor: pointer
   justify-content: center
-  padding-bottom: var(--$button-padding-vertical, $button-padding-vertical)
-  padding-left: var(--$button-padding-horizontal, $button-padding-horizontal)
-  padding-right: var(--$button-padding-horizontal, $button-padding-horizontal)
-  padding-top: var(--$button-padding-vertical, $button-padding-vertical)
+  padding-bottom: var(--button-padding-vertical, $button-padding-vertical)
+  padding-left: var(--button-padding-horizontal, $button-padding-horizontal)
+  padding-right: var(--button-padding-horizontal, $button-padding-horizontal)
+  padding-top: var(--button-padding-vertical, $button-padding-vertical)
   text-align: center
   white-space: nowrap
   strong
