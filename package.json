@@ -28,7 +28,8 @@
   },
   "scripts": {
     "dart-sass": "dart-sass",
-    "dev": "parcel public/index.html"
+    "dev": "parcel public/index.html",
+    "build": "parcel build public/index.html"
   },
   "files": [
     "css",
